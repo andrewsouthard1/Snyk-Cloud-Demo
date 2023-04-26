@@ -8,11 +8,6 @@ resource "aws_s3_bucket" "exposedbucket" {
   }
 }
 
-resource "aws_s3_bucket_acl" "exposedbucket_acl" {
-  bucket = aws_s3_bucket.exposedbucket.id
-  acl    = "public-read"
-}
-
 resource "aws_s3_bucket_public_access_block" "private" {
   bucket                  = aws_s3_bucket.exposedbucket.id
   block_public_policy     = true
